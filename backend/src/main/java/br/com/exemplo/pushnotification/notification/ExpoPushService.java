@@ -52,7 +52,8 @@ public class ExpoPushService {
                 "channelId", "default",
                 "data", Map.of(
                         "categoria", request.categoria(),
-                        "avisoId", request.avisoId()
+                        "avisoId", request.avisoId(),
+                        "origem", request.origem()
                 )
         );
 
@@ -91,6 +92,10 @@ public class ExpoPushService {
             throw new IllegalArgumentException(
                     "avisoId deve ser maior que zero."
             );
+        }
+
+        if (request.origem() == null || request.origem().isBlank()) {
+            throw new IllegalArgumentException("origem é obrigatória.");
         }
     }
 }

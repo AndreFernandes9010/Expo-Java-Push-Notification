@@ -10,6 +10,7 @@ export type SendNotificationRequest = {
   body: string;
   categoria: string;
   avisoId: number;
+  origem: string;
 };
 
 async function request<T>(

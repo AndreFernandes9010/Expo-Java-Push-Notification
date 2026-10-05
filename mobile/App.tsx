@@ -32,6 +32,7 @@ export default function App() {
   const [body, setBody] = useState('Existe uma nova mensagem para você.');
   const [categoria, setCategoria] = useState('INFO');
   const [avisoId, setAvisoId] = useState('1');
+  const [origem, setOrigem] = useState('SISTEMA');
   const [lastInteraction, setLastInteraction] = useState(
     'Nenhuma notificação aberta.',
   );
@@ -51,7 +52,8 @@ export default function App() {
           `Categoria: ${String(data?.categoria ?? '-')}
 Aviso: ${String(
             data?.avisoId ?? '-',
-          )}`,
+          )}
+Origem: ${String(data?.origem ?? '-')}`,
         );
       });
 
@@ -118,6 +120,7 @@ Aviso: ${String(
         body,
         categoria,
         avisoId: parsedAvisoId,
+        origem,
       });
 
       Alert.alert(
@@ -210,6 +213,14 @@ Aviso: ${String(
             onChangeText={setAvisoId}
             placeholder="Aviso ID"
             keyboardType="number-pad"
+          />
+
+          <TextInput
+            style={styles.input}
+            value={origem}
+            onChangeText={setOrigem}
+            placeholder="Origem"
+            autoCapitalize="characters"
           />
 
           <Button

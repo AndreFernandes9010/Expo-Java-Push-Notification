@@ -4,6 +4,7 @@ public record NotificationRequest(
         String title,
         String body,
         String categoria,
-        Long avisoId
+        Long avisoId,
+        String origem
 ) {
 }
